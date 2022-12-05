@@ -1,0 +1,81 @@
+:root {
+  --object-hover: red;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.svg-wrapper {
+  width: 70%;
+  margin: 0 auto;
+  border: solid 1px black;
+  overflow: hidden;
+}
+
+.zu {
+  fill: #1eb8e9;
+  fill-opacity: 0.05;
+  stroke: #0d814a;
+  stroke-linecap: round;
+  stroke-opacity: 1;
+  transition-delay: 0.3s;
+}
+
+.zu:hover {
+  fill-opacity: 0.1;
+}
+
+.object {
+  font-variation-settings: normal;
+  opacity: 1;
+  fill: #000000;
+  fill-opacity: 0.2;
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: miter;
+  stroke-miterlimit: 4;
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
+  stroke-opacity: 1;
+  -inkscape-stroke: none;
+  stop-color: #000000;
+  stop-opacity: 1;
+  transition-duration: 0.6s;
+}
+
+.object:hover {
+  cursor: pointer;
+  fill: var(--object-hover);
+  fill-opacity: 0.5;
+  filter: drop-shadow(0px 0px 5px red);
+}
+
+.railway {
+  fill: none;
+  stroke: #4c0000;
+  stroke-linecap: round
+}
+
+.railway:hover {
+  cursor: pointer;
+  filter: drop-shadow(0px 0px 5px red);
+}
+
+.open-area {
+  stroke: #000000;
+  stroke-dasharray: 4, 3;
+  fill-opacity: 0;
+}
+
+.open-area:hover {
+  cursor: pointer;
+  fill: var(--object-hover);
+  fill-opacity: 0.5;
+  filter: drop-shadow(0px 0px 5px red);
+}
