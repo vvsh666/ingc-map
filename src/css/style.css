@@ -1,4 +1,6 @@
 :root {
+  --primary: rgb(46, 101, 173);
+  --secondary: rgb(0, 141, 210);
   --object-hover: red;
 }
 
@@ -8,6 +10,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.container {
+  max-width: 1600px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.header {
+  padding: 10px 0;
+  background-image: linear-gradient(90deg, var(--primary), var(--secondary));
 }
 
 .svg-wrapper {
