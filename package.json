@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/vvsh666/ingc-map/issues"
   },
-  "homepage": "https://github.com/vvsh666/ingc-map#readme"
+  "homepage": "https://github.com/vvsh666/ingc-map#readme",
+  "devDependencies": {
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  }
 }
