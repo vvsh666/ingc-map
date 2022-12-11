@@ -1,4 +1,4 @@
 import "./index.html";
-import { one } from "./module/one";
+import { mapNavigation } from "./module/mapNavigation";
 
-one('Hello JS')
+mapNavigation('mapNavigation')
