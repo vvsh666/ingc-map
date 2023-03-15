@@ -1,12 +1,15 @@
 export const mapNavigation = (a) => {
-  
+
   const svgMap = document.getElementById('scheme')
+  console.dir(svgMap);
   const svgWrapper = document.getElementById('svg-wrapper')
   console.log('svgWrapper.clientHeight: ', svgWrapper.offsetHeight);
   console.log('svgWrapper.clientWidth: ', svgWrapper.offsetWidth);
 
+  // Получаем значение атрибута viewBox SVG элемента карты
   let viewBoxVolume = svgMap.getAttribute('viewBox')
   
+  // Функция преобразования строкового атрибута из нескольких значений в числовой массив
   const stringToArr = (string) => {
     let arr = string.split(' ')
     arr.forEach((item, index) => {
@@ -15,12 +18,14 @@ export const mapNavigation = (a) => {
     return arr
   }
 
+  // Функция преобразования массива из чисел в строку значений разделенных пробелом
   const arrToString = (arr) => {
     return arr.join(' ')
   }
 
-  const viewBoxVolumeDefault = stringToArr(viewBoxVolume)
+  const viewBoxVolumeDefault = stringToArr(viewBoxVolume) // Сохраняем начальные значения атрибута viewBox в виде массива чисел
 
+  // Функция для обработки события колеса мыши  
   const zoom = (e) => {
     e.preventDefault()
 
@@ -43,7 +48,10 @@ export const mapNavigation = (a) => {
     }
     
     viewBoxVolume[3] = viewBoxVolume[2] * aspectRatio
-    // viewBoxVolume[1] = viewBoxVolume[0] * aspectRatio
+
+    viewBoxVolume.forEach((item, index) => {
+      viewBoxVolume[index] = Math.round(item)
+    })
 
     viewBoxVolume = arrToString(viewBoxVolume)
         
