@@ -1,10 +1,11 @@
 export const mapNavigation = (a) => {
 
   const svgMap = document.getElementById('scheme')
-  console.dir(svgMap);
   const svgWrapper = document.getElementById('svg-wrapper')
-  console.log('svgWrapper.clientHeight: ', svgWrapper.offsetHeight);
-  console.log('svgWrapper.clientWidth: ', svgWrapper.offsetWidth);
+  let isMouseMove = false;
+  let mouseStartX, mouseStartY
+
+  console.dir(svgMap);
 
   // Получаем значение атрибута viewBox SVG элемента карты
   let viewBoxVolume = svgMap.getAttribute('viewBox')
@@ -54,6 +55,7 @@ export const mapNavigation = (a) => {
     })
 
     viewBoxVolume = arrToString(viewBoxVolume)
+    console.log(viewBoxVolume);
         
     svgMap.setAttribute('viewBox', viewBoxVolume)
     
@@ -62,9 +64,44 @@ export const mapNavigation = (a) => {
 
   svgWrapper.addEventListener('wheel', zoom)
 
-  svgWrapper.addEventListener('click', (e) => {
-    const indexX = e.offsetX / svgWrapper.offsetWidth
-    console.log('x: ', indexX);
+  svgWrapper.addEventListener('mousedown', (e) => {
+    e.preventDefault()
+    if (e.button === 1) {
+      isMouseMove = true
+      mouseStartX = e.clientX
+      mouseStartY = e.clientY
+    }    
+  })
+
+  svgWrapper.addEventListener('mouseup', (e) => {
+    e.preventDefault()
+    if (e.button === 1) {
+      isMouseMove = false
+    }   
+  })
+
+  svgWrapper.addEventListener('mousemove', (e) => {
+
+    let deltaX, deltaY, indexMove
+
+    if (isMouseMove) {
+
+      viewBoxVolume = stringToArr(viewBoxVolume)
+
+      deltaX = e.clientX - mouseStartX
+      deltaY = e.clientY - mouseStartY
+
+      mouseStartX = e.clientX
+      mouseStartY = e.clientY
+
+      indexMove = viewBoxVolume[2] / svgWrapper.clientWidth
+
+      viewBoxVolume[0] -= deltaX * indexMove
+      viewBoxVolume[1] -= deltaY * indexMove
+
+      viewBoxVolume = arrToString(viewBoxVolume)
+      svgMap.setAttribute('viewBox', viewBoxVolume)
+    }
   })
 
 }
