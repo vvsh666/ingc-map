@@ -59,6 +59,23 @@ export const mapNavigation = (a) => {
     svgMap.setAttribute('viewBox', viewBoxVolume)    
   }
 
+  // Функция для показа всей карты
+  const zoomAll = (e) => {
+    e.preventDefault()
+
+    viewBoxVolume = stringToArr(viewBoxVolume)
+
+    const aspectRatio = viewBoxVolume[3] / viewBoxVolume[2]
+
+    viewBoxVolume[2] = viewBoxVolumeDefault[2]
+    viewBoxVolume[0] = viewBoxVolumeDefault[0]
+    viewBoxVolume[1] = viewBoxVolumeDefault[1]
+    viewBoxVolume[3] = viewBoxVolume[2] * aspectRatio
+
+    viewBoxVolume = arrToString(viewBoxVolume)
+    svgMap.setAttribute('viewBox', viewBoxVolume)
+  }
+
   // Функция перемещения карты
   const move = (e) => {
     let deltaX, deltaY, indexMove
@@ -108,6 +125,7 @@ export const mapNavigation = (a) => {
 
   svgWrapper.addEventListener('mousemove', move)
 
+  svgWrapper.addEventListener('dblclick', zoomAll)
 
 }
 
