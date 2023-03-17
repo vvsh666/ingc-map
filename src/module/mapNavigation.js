@@ -5,8 +5,6 @@ export const mapNavigation = (a) => {
   let isMouseMove = false;
   let mouseStartX, mouseStartY
 
-  console.dir(svgMap);
-
   // Получаем значение атрибута viewBox SVG элемента карты
   let viewBoxVolume = svgMap.getAttribute('viewBox')
   
@@ -31,14 +29,16 @@ export const mapNavigation = (a) => {
     e.preventDefault()
 
     viewBoxVolume = stringToArr(viewBoxVolume)
+
     const aspectRatio = viewBoxVolume[3] / viewBoxVolume[2]
     const indexX = e.offsetX / svgWrapper.offsetWidth
-    const indexY = e.offsetY / svgWrapper.offsetHeight
-            
+    const indexY = e.offsetY / svgWrapper.offsetHeight            
     const delta = e.deltaY
+
     viewBoxVolume[2] += delta
     viewBoxVolume[0] -= delta * indexX
     viewBoxVolume[1] -= delta * indexY * aspectRatio
+
     if (viewBoxVolume[2] <= 0) {
       viewBoxVolume[2] -= delta;
       viewBoxVolume[0] += delta / 2
@@ -55,36 +55,17 @@ export const mapNavigation = (a) => {
     })
 
     viewBoxVolume = arrToString(viewBoxVolume)
-    console.log(viewBoxVolume);
         
-    svgMap.setAttribute('viewBox', viewBoxVolume)
-    
-    
+    svgMap.setAttribute('viewBox', viewBoxVolume)    
   }
 
-  svgWrapper.addEventListener('wheel', zoom)
-
-  svgWrapper.addEventListener('mousedown', (e) => {
-    e.preventDefault()
-    if (e.button === 1) {
-      isMouseMove = true
-      mouseStartX = e.clientX
-      mouseStartY = e.clientY
-    }    
-  })
-
-  svgWrapper.addEventListener('mouseup', (e) => {
-    e.preventDefault()
-    if (e.button === 1) {
-      isMouseMove = false
-    }   
-  })
-
-  svgWrapper.addEventListener('mousemove', (e) => {
-
+  // Функция перемещения карты
+  const move = (e) => {
     let deltaX, deltaY, indexMove
 
     if (isMouseMove) {
+
+      document.body.style.cursor = 'move';
 
       viewBoxVolume = stringToArr(viewBoxVolume)
 
@@ -102,6 +83,31 @@ export const mapNavigation = (a) => {
       viewBoxVolume = arrToString(viewBoxVolume)
       svgMap.setAttribute('viewBox', viewBoxVolume)
     }
+  }
+
+  svgWrapper.addEventListener('wheel', zoom)
+
+  // Функция инициализации перемещения карты
+  svgWrapper.addEventListener('mousedown', (e) => {
+    e.preventDefault()
+    if (e.button === 0) {
+      isMouseMove = true
+      mouseStartX = e.clientX
+      mouseStartY = e.clientY
+    }    
   })
 
+  // Функция отключения перемещения карты
+  svgWrapper.addEventListener('mouseup', (e) => {
+    e.preventDefault()
+    if (e.button === 0) {
+      isMouseMove = false
+      document.body.style.cursor = 'default';
+    }   
+  })
+
+  svgWrapper.addEventListener('mousemove', move)
+
+
 }
+
