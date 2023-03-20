@@ -52,8 +52,18 @@ main {
 .info {
   width: 20%;
   margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+  row-gap: 20px;
+}
+
+.object-list,
+.object-info {
   border: 1px solid var(--primary);
   border-radius: 5px;
+  height: 50%;
 }
 
 .svg-wrapper {
