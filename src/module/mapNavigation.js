@@ -1,3 +1,5 @@
+'use strict'
+
 export const mapNavigation = (a) => {
 
   const svgMap = document.getElementById('scheme')
