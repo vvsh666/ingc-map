@@ -64,6 +64,17 @@ main {
   border: 1px solid var(--primary);
   border-radius: 5px;
   height: 50%;
+  list-style-type: none;
+  padding-top: 5px;
+}
+
+.object-list-item {
+  padding: 5px 10px;
+}
+
+.object-list-item_active {
+  background-color: var(--primary);
+  color: white;
 }
 
 .svg-wrapper {
