@@ -4,6 +4,17 @@
   --object-hover: red;
 }
 
+@font-face {
+	font-family: 'Exo 2.0';
+	src: url('../fonts/exo20/Exo20-Regular.eot');
+	src: local('Exo 2.0 Regular'), local('Exo2.0-Regular'),
+		url('../fonts/exo20/Exo20-Regular.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/exo20/Exo20-Regular.woff') format('woff'),
+		url('../fonts/exo20/Exo20-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
 *,
 *::before,
 *::after {
@@ -16,6 +27,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  /* font-family: 'Exo 2.0 Regular', sans-serif; */
 }
 
 .container,
