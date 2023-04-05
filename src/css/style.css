@@ -1,7 +1,7 @@
 :root {
   --primary: rgb(46, 101, 173);
   --secondary: rgb(0, 141, 210);
-  --object-hover: red;
+  --object-hover: grey;
   --object-list-item-hover: grey;
 }
 
@@ -140,7 +140,7 @@ main {
   cursor: pointer;
   fill: var(--object-hover);
   fill-opacity: 0.5;
-  filter: drop-shadow(0px 0px 5px red);
+  filter: drop-shadow(0px 0px 5px var(--object-hover));
 }
 
 .railway {
@@ -151,7 +151,7 @@ main {
 
 .railway:hover {
   cursor: pointer;
-  filter: drop-shadow(0px 0px 5px red);
+  filter: drop-shadow(0px 0px 5px var(--object-hover));
 }
 
 .open-area {
@@ -164,7 +164,7 @@ main {
   cursor: pointer;
   fill: var(--object-hover);
   fill-opacity: 0.5;
-  filter: drop-shadow(0px 0px 5px red);
+  filter: drop-shadow(0px 0px 5px var(--object-hover));
 }
 
 .footer {
