@@ -3,8 +3,6 @@ import { getData } from "./getData"
 export const selectObjectInList = () => {
   const objectList = document.getElementById('object-list')
 
-  let idObject
-
   const selectObject = (e) => {
     const list = document.querySelectorAll('.object-list-item')
 
@@ -14,32 +12,29 @@ export const selectObjectInList = () => {
     e.target.classList.add('object-list-item_active')
   }
 
-  const listMap = document.querySelectorAll('.object')
-  
-  const getId = (e) => {
+    
+  const flashObjectMap = (e) => {
+    const listMap = document.querySelectorAll('.object')
+
     getData().then(data => {
-      data.forEach(item => {
+      data.forEach(item => {        
         if (item.name === e.target.textContent) {
-          return item.id
+          listMap.forEach(listItem => {
+            listItem.classList.remove('object_active')
+            if (item.id === listItem.id) {
+              listItem.classList.add('object_active')
+            }
+          })
         }
-      })
-      
+      })      
     })
   }
 
-    // getData().then(data => {
-    //   data.forEach(item => {
-    //     if (item.name === e.target.textContent) {
-    //       idObject = item.id
-    //     }
-    //   })
-    // })
-  
 
   const getObject = (e) => {
     if (e.target.closest('.object-list-item')) {
       selectObject(e)
-      getId(e)
+      flashObjectMap(e)
     }
   }
 

@@ -136,6 +136,11 @@ main {
   transition-duration: 0.6s;
 }
 
+.object_active {
+  fill: var(--primary);
+  fill-opacity: 0.9;
+}
+
 .object:hover {
   cursor: pointer;
   fill: var(--object-hover);
