@@ -12,21 +12,15 @@ export const selectObjectInList = () => {
     e.target.classList.add('object-list-item_active')
   }
 
-    
+
   const flashObjectMap = (e) => {
     const listMap = document.querySelectorAll('.object')
 
-    getData().then(data => {
-      data.forEach(item => {        
-        if (item.name === e.target.textContent) {
-          listMap.forEach(listItem => {
-            listItem.classList.remove('object_active')
-            if (item.id === listItem.id) {
-              listItem.classList.add('object_active')
-            }
-          })
-        }
-      })      
+    listMap.forEach(listItem => {
+      listItem.classList.remove('object_active')
+      if (e.target.dataset.id === listItem.id) {
+        listItem.classList.add('object_active')
+      }
     })
   }
 

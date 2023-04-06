@@ -83,10 +83,11 @@ main {
 
 .object-list-item {
   padding:2px 8px;
+  transition-duration: 0.6s;
 }
 
 .object-list-item:hover {
-  background-color: var(--object-list-item-hover);
+  background-color: var(--secondary);
   cursor: pointer;
 }
 
@@ -143,9 +144,9 @@ main {
 
 .object:hover {
   cursor: pointer;
-  fill: var(--object-hover);
+  fill: var(--secondary);
   fill-opacity: 0.5;
-  filter: drop-shadow(0px 0px 5px var(--object-hover));
+  filter: drop-shadow(0px 0px 5px var(--secondary));
 }
 
 .railway {
