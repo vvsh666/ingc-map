@@ -1,4 +1,5 @@
 import { getData } from "./getData"
+import { getInfo } from "./getInfo"
 
 export const selectObjectInList = () => {
   const objectList = document.getElementById('object-list')
@@ -29,6 +30,7 @@ export const selectObjectInList = () => {
     if (e.target.closest('.object-list-item')) {
       selectObject(e)
       flashObjectMap(e)
+      getInfo(e.target.dataset.id)
     }
   }
 
