@@ -1,4 +1,5 @@
-import { getData } from "./getData"
+'use strict'
+
 import { getInfo } from "./getInfo"
 
 export const selectObjectInList = () => {

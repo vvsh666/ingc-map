@@ -3,12 +3,15 @@
 export const showInfo = (obj) => {
   const objectInfo = document.querySelector('.object-info')
 
+  console.log(obj);
+
+
   for (let key in obj) {
     if (!obj[key]) {
       obj[key] = '-'
     }
   }
-  
+
   const info = `
   <div class="infoblock">
     <h3 class="infoheader">Полное наименование</h3>
@@ -41,4 +44,7 @@ export const showInfo = (obj) => {
   `
 
   objectInfo.innerHTML = info
+
+
+
 } 

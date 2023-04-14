@@ -8,7 +8,7 @@ export const getInfo = (id) => {
     data.forEach(item => {
       if (item.id === id) {
         showInfo(item)
-      }
+      } 
     })
     
 
