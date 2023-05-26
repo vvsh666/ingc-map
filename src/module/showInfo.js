@@ -3,9 +3,6 @@
 export const showInfo = (obj) => {
   const objectInfo = document.querySelector('.object-info')
 
-  console.log(obj);
-
-
   for (let key in obj) {
     if (!obj[key]) {
       obj[key] = '-'
