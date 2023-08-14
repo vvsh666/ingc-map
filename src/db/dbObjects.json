@@ -117,5 +117,39 @@
     "building_year": "1976",
     "address": "г. Пермь, ул. Ново-Гайвинская, 92",
     "land": "59:01:2910297:168"
+  },
+  {
+    "id": "sklad-i",
+    "name": "Центральный склад",
+    "fullname": "уточнить",
+    "reg_number": "",
+    "cadastr_number": "уточнить",
+    "liter": "И",
+    "assigning": "Центральный склад, участок пошива матов",
+    "square": "690.4",
+    "production_square": "53.3",
+    "office_square": "95.8",
+    "storage_square": "541.3",
+    "number_floors": "1",
+    "building_year": "уточнить",
+    "address": "г. Пермь, ул. Ново-Гайвинская, 92",
+    "land": "59:01:2910297:168"
+  },
+  {
+    "id": "sklad-lkm",
+    "name": "Склад ЛКМ, комната приема пищи",
+    "fullname": "уточнить",
+    "reg_number": "",
+    "cadastr_number": "уточнить",
+    "liter": "В",
+    "assigning": "Центральный склад, участок пошива матов",
+    "square": "690.4",
+    "production_square": "53.3",
+    "office_square": "95.8",
+    "storage_square": "541.3",
+    "number_floors": "1",
+    "building_year": "уточнить",
+    "address": "г. Пермь, ул. Ново-Гайвинская, 92",
+    "land": "59:01:2910297:168"
   }
 ]
